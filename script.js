@@ -1,13 +1,15 @@
 //your JS code here. If required.
-const sizeInfo = document.querySelector('#sizeInfo');
-const width = sizeInfo.querySelector('h1:first-child');
-const height = sizeInfo.querySelector('h1:last-child');
+function updateSize() {
+            const width = window.innerWidth;
+            const height = window.innerHeight;
 
-function setScreenSize() {
-    width.innerText = `Width: ${window.innerWidth}px`;
-    height.innerText = `Height: ${window.innerHeight}px`;
-}
+            // Update the content of the spans in the h1 tag
+            document.getElementById('width').textContent = width;
+            document.getElementById('height').textContent = height;
+        }
 
-window.addEventListener('resize', setScreenSize);
+        // Initial update when the page loads
+        updateSize();
 
-setScreenSize();
+        // Add event listener for window resize
+        window.addEventListener('resize', updateSize);
